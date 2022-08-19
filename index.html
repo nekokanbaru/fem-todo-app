@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <h1>TODO</h1>
+        <img id="select-mode" src="images/icon-sun.svg" />
+      </div>
+
+      <div class="input-form | text-with-cb">
+        <div id="cb-create-todo" class="round-checkbox"></div>
+        <input
+          id="create-todo"
+          type="text"
+          name="create-todo"
+          placeholder="Create a new todo..."
+        />
+      </div>
+
+      <div class="task-container-wrapper">
+        <div class="task-container"></div>
+      </div>
+      <!-- <div class="task-footer">
+        <p>0 items left</p>
+      </div> -->
+    </div>
+  </body>
+  <script type="module" src="main.js"></script>
+</html>
