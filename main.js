@@ -1,5 +1,5 @@
 // import axios from "axios";
-const response = await fetch("task-list.json");
+const response = await fetch("./task-list.json");
 const json = await response.json();
 const taskContainer = document.querySelector(".task-container");
 let counter = 0;

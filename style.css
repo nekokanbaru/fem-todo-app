@@ -126,7 +126,7 @@ table {
 body {
   font-size: 18px;
   background-color: hsl(235, 21%, 11%);
-  background-image: url("images/bg-mobile-dark.jpg");
+  background-image: url("./images/bg-mobile-dark.jpg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -148,7 +148,7 @@ body {
 
 @media (min-width: 50em) {
   body {
-    background-image: url("images/bg-desktop-dark.jpg");
+    background-image: url("./images/bg-desktop-dark.jpg");
   }
 
   .main {
@@ -234,12 +234,12 @@ body {
 }
 
 .round-checkbox[checked] {
-  background: url("images/icon-check.svg") no-repeat center,
+  background: url("./images/icon-check.svg") no-repeat center,
     linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
 .round-checkbox[light-mode][checked] {
-  background: url("images/icon-check.svg") no-repeat center,
+  background: url("./images/icon-check.svg") no-repeat center,
     linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
@@ -361,13 +361,13 @@ body {
 }
 
 body[light-mode] {
-  background-image: url("images/bg-mobile-light.jpg");
+  background-image: url("./images/bg-mobile-light.jpg");
   background-color: hsl(236, 33%, 92%);
 }
 
 @media (min-width: 50em) {
   body[light-mode] {
-    background-image: url("images/bg-desktop-light.jpg");
+    background-image: url("./images/bg-desktop-light.jpg");
   }
 }
 
