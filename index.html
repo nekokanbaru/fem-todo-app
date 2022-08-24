@@ -18,7 +18,10 @@
     <div class="main">
       <div class="header">
         <h1>TODO</h1>
-        <img id="select-mode" src="images/icon-sun.svg" />
+        <!-- <img id="select-mode" src="./images/icon-sun.svg" /> -->
+        <svg class="icon" id="select-mode">
+          <use id="select-modee" xlink:href="./images/icons.svg#icon-sun"></use>
+        </svg>
       </div>
 
       <div class="input-form | text-with-cb">
@@ -34,10 +37,23 @@
       <div class="task-container-wrapper">
         <div class="task-container"></div>
       </div>
-      <!-- <div class="task-footer">
-        <p>0 items left</p>
-      </div> -->
+
+      <div class="filter-tasks">
+        <p class="filter-all filter" active-filter>All</p>
+        <p class="filter-active filter">Active</p>
+        <p class="filter-completed filter">Completed</p>
+      </div>
+
+      <p class="drag-and-drop">Drag and drop to reorder list</p>
     </div>
   </body>
   <script type="module" src="main.js"></script>
+
+  <!-- drag and drop tasks -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+    integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
 </html>

@@ -135,13 +135,32 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  max-width: 600px;
   margin: 2rem;
   gap: 1rem;
+}
+
+@media (min-width: 40em) {
+  .main {
+    margin: 2rem auto;
+  }
+}
+
+@media (min-width: 50em) {
+  body {
+    background-image: url("images/bg-desktop-dark.jpg");
+  }
+
+  .main {
+    margin-top: 5rem;
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .header h1 {
@@ -150,7 +169,7 @@ body {
   color: white;
 }
 
-.header img {
+.header svg {
   align-self: center;
 }
 
@@ -161,10 +180,28 @@ body {
 .text-with-cb {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   background-color: hsl(235, 24%, 19%);
   padding: 15px 20px 15px 20px;
   border-radius: 10px 10px 0 0;
+}
+
+.input-form {
+  justify-content: initial;
+  border-radius: 10px;
+}
+
+.checkbox-and-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkbox-and-text h2:hover {
+  cursor: pointer;
 }
 
 .text-with-cb .round-checkbox {
@@ -172,8 +209,38 @@ body {
   min-width: 20px;
   height: 20px;
   border: 1px solid hsla(234, 39%, 85%, 0.4);
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
+}
+
+.task-container > .text-with-cb:hover {
+  cursor: grab;
+}
+
+.round-checkbox:hover {
+  background: linear-gradient(-25deg, hsl(235, 24%, 19%), hsl(235, 24%, 19%)),
+    linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-radius: 50%;
+
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.round-checkbox[light-mode]:hover {
+  background: linear-gradient(-25deg, hsl(0, 0%, 98%), hsl(0, 0%, 98%)),
+    linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.round-checkbox[checked] {
+  background: url("images/icon-check.svg") no-repeat center,
+    linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.round-checkbox[light-mode][checked] {
+  background: url("images/icon-check.svg") no-repeat center,
+    linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
 .text-with-cb input[type="text"] {
@@ -188,9 +255,12 @@ body {
   outline: none;
 }
 
-.round-checkbox[checked] {
-  background: url("images/icon-check.svg") no-repeat center,
-    linear-gradient(-25deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+.text-with-cb > .task-close:hover {
+  cursor: pointer;
+}
+
+.text-with-cb[hidden] {
+  display: none;
 }
 
 .task-container h2[line-through] {
@@ -200,7 +270,8 @@ body {
 
 .task-container {
   background-color: hsl(235, 24%, 19%);
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0px 150px 50px 10px hsla(234, 44%, 8%, 0.6);
 }
 
 .task-container .text-with-cb {
@@ -215,8 +286,154 @@ body {
 .task-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
+  color: hsla(234, 39%, 85%, 0.2);
   background-color: hsl(235, 24%, 19%);
   padding: 15px 20px 15px 20px;
   border-radius: 0 0 10px 10px;
+}
+
+.task-footer > .clear-completed:hover {
+  color: hsla(234, 39%, 85%, 0.6);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-tasks {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  gap: 1rem;
+  border-radius: 10px;
+  background-color: hsl(235, 24%, 19%);
+  color: hsla(234, 39%, 85%, 0.2);
+}
+
+.filter-tasks > p:hover,
+.task-footer-filter > p:hover {
+  color: hsla(234, 39%, 85%, 0.6);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.task-footer-filter {
+  display: none;
+}
+
+.filter[active-filter] {
+  color: rgb(8, 136, 196);
+}
+
+.filter-tasks .filter[active-filter]:hover,
+.task-footer-filter .filter[active-filter]:hover {
+  color: rgb(8, 136, 196);
+}
+
+@media (min-width: 50em) {
+  .filter-tasks {
+    display: none;
+  }
+
+  .task-footer-filter {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.drag-and-drop {
+  text-align: center;
+  margin-top: 3rem;
+  color: hsla(234, 39%, 85%, 0.2);
+}
+
+#select-mode {
+  width: 2em;
+  aspect-ratio: 1;
+  fill: #fff;
+}
+
+#select-mode:hover {
+  cursor: pointer;
+  fill: hsl(235, 24%, 19%);
+  transition: 0.2s ease;
+}
+
+body[light-mode] {
+  background-image: url("images/bg-mobile-light.jpg");
+  background-color: hsl(236, 33%, 92%);
+}
+
+@media (min-width: 50em) {
+  body[light-mode] {
+    background-image: url("images/bg-desktop-light.jpg");
+  }
+}
+
+.text-with-cb[light-mode] {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.text-with-cb[light-mode] .round-checkbox {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  border: 1px solid hsla(235, 19%, 35%, 0.2);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.text-with-cb[light-mode] h2 {
+  color: hsla(235, 19%, 35%, 1);
+}
+
+.text-with-cb[light-mode] h2[line-through] {
+  color: hsla(235, 19%, 35%, 0.4);
+}
+
+.text-with-cb[light-mode] input[type="text"] {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: hsla(235, 19%, 35%, 1);
+  width: 80%;
+}
+
+.task-container .text-with-cb[light-mode] {
+  border-bottom: 1.5px solid hsla(235, 19%, 35%, 0.2);
+}
+
+.task-container[light-mode] {
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0px 60px 20px 5px hsla(235, 19%, 35%, 0.2);
+}
+
+.task-footer[light-mode],
+.filter-tasks[light-mode] {
+  background-color: hsl(0, 0%, 98%);
+  color: hsla(235, 19%, 35%, 0.4);
+}
+
+@media (min-width: 50em) {
+  .task-container[light-mode] {
+    background-color: hsl(0, 0%, 98%);
+    box-shadow: 0px 50px 20px 5px hsla(235, 19%, 35%, 0.2);
+  }
+
+  .task-container {
+    background-color: hsl(235, 24%, 19%);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0px 50px 50px 10px hsla(234, 44%, 8%, 0.6);
+  }
+}
+
+.drag-and-drop[light-mode] {
+  color: hsla(235, 19%, 35%, 0.4);
+}
+
+.task-close {
+  fill: white;
+  width: 20px;
+  height: 20px;
 }
